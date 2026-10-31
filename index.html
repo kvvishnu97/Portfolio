@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#e9f3ec">
+<title>Vishnu K V | Portfolio</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;700;800&family=Public+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#10281c; --muted:#4d6457; --green:#166534; --green-2:#15803d; --brass:#92400e; --bg:#e9f3ec;
+  --rule:rgba(21,101,52,.13);
+  --glass:rgba(255,255,255,.62); --glass-strong:rgba(255,255,255,.92);
+  --border:rgba(255,255,255,.95); --blur:blur(18px) saturate(1.4);
+  --shadow:0 10px 28px rgba(16,40,28,.10); --lift:0 20px 44px rgba(16,40,28,.18);
+  --grad:linear-gradient(120deg,#14532d 0%,#15803d 100%);
+  --display:"Spectral",Georgia,serif; --body:"Public Sans",system-ui,sans-serif; --mono:"IBM Plex Mono",ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:var(--body);color:var(--ink);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;font-variant-numeric:tabular-nums}
+/* ledger paper: ruled rows + column lines, softly lit */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:
+   radial-gradient(700px 500px at 8% 6%,rgba(134,239,172,.35),transparent 70%),
+   radial-gradient(600px 460px at 94% 90%,rgba(250,204,21,.16),transparent 70%),
+   repeating-linear-gradient(to bottom,transparent 0,transparent 31px,var(--rule) 31px,var(--rule) 32px),
+   repeating-linear-gradient(to right,transparent 0,transparent 119px,var(--rule) 119px,var(--rule) 120px),
+   linear-gradient(160deg,#f2f9f4,#e6f1ea)}
+h1,h2,h3{font-family:var(--display);margin:0;letter-spacing:-.01em;line-height:1.15;color:var(--ink)}
+p{margin:0;color:var(--muted)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--green-2);outline-offset:3px}
+.glass{background:var(--glass);backdrop-filter:var(--blur);-webkit-backdrop-filter:var(--blur);border:1px solid var(--border);border-radius:20px;box-shadow:var(--shadow)}
+
+.page{max-width:920px;margin:0 auto;padding:40px 20px 24px;display:grid;gap:56px}
+/* double rule, the accountant's "total" line */
+.sec-title{font-size:clamp(1.6rem,3.4vw,2.1rem);margin-bottom:22px;padding-bottom:8px;border-bottom:4px double var(--green)}
+
+/* ---------- hero ---------- */
+.hero{padding:40px 36px;display:grid;grid-template-columns:auto 1fr;gap:34px;align-items:center}
+.avatar{width:168px;height:168px;border-radius:50%;padding:5px;background:var(--grad);box-shadow:0 14px 34px rgba(20,83,45,.3)}
+.avatar img{width:100%;height:100%;border-radius:50%;object-fit:cover;border:4px solid #fff;display:block}
+.hero h1{font-size:clamp(2.4rem,6vw,3.8rem);font-weight:800}
+.role{font-family:var(--mono);font-size:1rem;color:var(--brass);margin:6px 0 0}
+.lead{margin-top:18px;font-size:1rem;max-width:62ch}
+.hero-row{display:flex;flex-wrap:wrap;align-items:center;gap:14px;margin-top:24px}
+.socials{display:flex;gap:12px}
+.socials a{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;color:var(--green);
+  background:var(--glass-strong);border:1px solid var(--border);border-radius:50%;box-shadow:var(--shadow);
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),box-shadow .45s ease,background .45s ease,color .45s ease}
+.socials a:hover,.socials a:focus-visible{color:#fff;background:var(--grad);transform:translateY(-4px) scale(1.08);
+  box-shadow:0 0 0 6px rgba(21,128,61,.14),0 0 0 12px rgba(21,128,61,.07),0 12px 28px rgba(20,83,45,.35)}
+.btn{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:.92rem;padding:11px 22px;border-radius:999px;border:1px solid transparent;font-family:var(--body);transition:transform .3s,box-shadow .3s,background .3s}
+.btn-primary{color:#fff;background:var(--grad);box-shadow:0 8px 22px rgba(20,83,45,.3)}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(20,83,45,.4)}
+
+/* ---------- experience ledger ---------- */
+.ledger{display:grid;gap:16px}
+.entry{padding:24px 26px;display:grid;grid-template-columns:75px 1fr;gap:22px;align-items:start;transition:transform .3s,box-shadow .3s}
+.entry:hover{transform:translateY(-4px);box-shadow:var(--lift)}
+.tl-logo{width:75px;height:75px;object-fit:contain;background:#fff;border-radius:14px;padding:6px;border:1px solid var(--rule)}
+.entry h3{font-size:1.2rem}
+.org{font-family:var(--mono);font-size:.78rem;color:var(--green);margin:4px 0 6px}
+.when{display:inline-block;font-family:var(--mono);font-size:.8rem;font-weight:500;color:var(--brass);margin:0 0 10px;padding:2px 0;border-bottom:3px double rgba(146,64,14,.55)}
+.entry p{font-size:.92rem}
+
+/* ---------- education ---------- */
+.edu-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.edu{overflow:hidden;text-align:center;transition:transform .3s,box-shadow .3s}
+.edu:hover{transform:translateY(-5px);box-shadow:var(--lift)}
+.edu img{width:100%;height:140px;object-fit:contain;padding:20px;background:rgba(255,255,255,.9);border-bottom:1px solid var(--rule)}
+.edu .body{padding:20px}
+.lvl{font-family:var(--mono);font-size:.74rem;color:var(--brass)}
+.edu h3{font-size:1rem;margin:8px 0 6px}
+.edu p{font-size:.85rem}
+.year{display:inline-block;margin-top:12px;font-family:var(--mono);font-size:.84rem;color:var(--green);border:1px solid rgba(21,101,52,.3);background:rgba(21,128,61,.08);border-radius:999px;padding:4px 14px}
+
+/* ---------- contact ---------- */
+.contact{padding:44px 30px;text-align:center}
+.contact h2{font-size:clamp(1.6rem,3.6vw,2.3rem);margin-bottom:10px}
+.contact p{max-width:480px;margin:0 auto 14px}
+.contact .btn{margin-top:10px}
+footer{padding:0 0 10px;text-align:center;font-size:.86rem;color:var(--muted)}
+
+@media (max-width:820px){
+  .edu-grid{grid-template-columns:1fr}
+}
+@media (max-width:640px){
+  .page{padding:20px 14px 20px;gap:44px}
+  .hero{grid-template-columns:1fr;justify-items:center;text-align:center;padding:30px 22px}
+  .hero-row{justify-content:center}
+  .avatar{width:140px;height:140px}
+  .entry{padding:20px;grid-template-columns:1fr}
+  .tl-logo{width:56px;height:56px}
+}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="page">
+
+  <!-- HERO -->
+  <header class="glass hero" id="home">
+    <div class="avatar"><img src="Images/Profile_image.jpg" alt="Portrait of Vishnu K V"></div>
+    <div>
+      <h1>Vishnu K V</h1>
+      <p class="role"><b>Accountant</b></p>
+      <p class="lead">Detail-oriented and analytical Senior Accountant with over 5 years of experience in high-volume Accounts
+Payable management and audit support within a Chartered Accountancy firm environment. CMA Final (Semi-Qualified) professional with strong expertise in vendor reconciliation, ledger scrutiny, statutory audit assistance,
+and compliance with GAAP and IFRS regulatory requirements. Proficient in SAP and MS Excel, with a proven track
+record of streamlining AP processes, enhancing vendor relationships, and ensuring accuracy and integrity in
+financial reporting. Accounts, and finance departments in an esteemed organization, where i can make the best
+of my potential and contribute to the organization's growth.</p>
+      <div class="hero-row">
+        <a class="btn btn-primary" href="Vishnu K Resume-1.pdf" target="_blank" rel="noopener"><i class="fas fa-file-lines"></i>View Resume</a>
+        <div class="socials">
+          <a href="https://www.linkedin.com/in/mzhvishnu" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+          <a href="https://www.instagram.com/mr._.vish_nu_?mdxt=MWJwOGZ6aDN6NmE4Zg==" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <h2 class="sec-title">Work experience</h2>
+    <div class="ledger">
+      <article class="glass entry">
+        <img class="tl-logo" src="Images/Bosch.png" alt="Bosch logo">
+        <div>
+          <h3>Financial Analyst</h3>
+          <div class="org">INVICTA SERVICES PRIVATE LIMITED (Client: Bosch Global Software Technologies Pvt Ltd)</div>
+          <div class="when">April 2026 - Present</div>
+          <p>Managed FP&amp;A activities at Bosch, including budgeting, forecasting, revenue and cost planning, deployment forecasting, and headcount planning. Handled SAP GL accounting and
+            month-end closing activities, including journal entries, accruals, depreciation, and reconciliations. Prepared financial reports, profitability statements, MIS, and cost analyses
+            to support business decisions. Managed chargeback accounting, invoicing, and variance analysis while collaborating with global finance, PMO, and business teams. Supported audits,
+            compliance, and internal controls, and contributed to pricing analysis, cost optimization, revenue analysis, and government grant accounting.</p>
+        </div>
+      </article>
+      <article class="glass entry">
+        <img class="tl-logo" src="Images/Conduent.png" alt="CONDUENT BUSINESS SERVICES INDIA LLP logo">
+        <div>
+          <h3>Senior Accounting Associate</h3>
+          <div class="org">CONDUENT BUSINESS SERVICES INDIA LLP (Client: Stellantis - Global Automaker)</div>
+          <div class="when">July 2023 - April 2026</div>
+          <p>Managed the end-to-end Accounts Payable process, including invoice processing, payments, adjustments, and reversals, while ensuring compliance with internal controls and accounting
+            policies. Performed vendor reconciliations, resolved billing and payment discrepancies, and managed vendor follow-ups and No Due Certificates (NDCs). Prepared aging reports and analysed
+            outstanding balances to support management decisions. Also developed VBA-based automated reconciliation files to simplify variance analysis, improve accuracy, and enhance process efficiency.</p>
+        </div>
+      </article>
+      <article class="glass entry">
+        <img class="tl-logo" src="Images/mantl_solutions.png" alt="MANTLE SOLUTIONS Pvt Ltd logo">
+        <div>
+          <h3>Accounting Associate</h3>
+          <div class="org">MANTLE SOLUTIONS Pvt, Ltd (Client: LULU Group International)</div>
+          <div class="when">March 2022 - July 2023</div>
+          <p>Managed the Record-to-Report (R2R) process within Accounts Payable, ensuring accurate vendor liability recognition and timely financial reporting. Performed high-volume vendor reconciliations across GCC entities,
+             managed end-to-end payments, and resolved PO–GRN–invoice discrepancies through root cause analysis. Coordinated quarterly and annual balance confirmations with external auditors, monitored aging open items, and
+             maintained audit-ready records. Prepared financial statements, reconciled related-party transactions, and analysed debit balances and income to ensure accurate financial reporting and strong internal controls.</p>
+        </div>
+      </article>
+      <article class="glass entry">
+        <img class="tl-logo" src="Images/Sengotiyan.png" alt="SENGOTTAIYAN &amp; CO logo">
+        <div>
+          <h3>Audit Assistant</h3>
+          <div class="org">SENGOTTAIYAN &amp; CO</div>
+          <div class="when">February 2021 - February 2022</div>
+          <p>Verified books of accounts and assisted in preparing and finalizing financial statements, including the Balance Sheet and Profit &amp; Loss Statement. Managed GST, TDS, and Income Tax return filings, ensuring statutory
+            compliance. Handled bank reconciliations, payroll processing, and invoice booking in Tally, along with debtor and creditor reconciliations. Supported internal audits by reviewing bookkeeping, accounts payable and receivable,
+             and other financial operations. Also participated in bank audits, stock audits, and other audit activities to ensure financial accuracy and compliance.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <h2 class="sec-title">Education</h2>
+    <div class="edu-grid">
+      <article class="glass edu">
+        <img src="Images/ICMA.png" alt="Institute of Cost Accountants of India logo">
+        <div class="body"><span class="lvl">Graduation</span>
+          <h3>Cost Management Accountant (CMA) - Final Semi Qualified</h3>
+          <p>Institute of Cost and Management Accounting of India</p>
+          <span class="year">2020</span></div>
+      </article>
+      <article class="glass edu">
+        <img src="Images/Calicut_uni.png" alt="University of Calicut logo">
+        <div class="body"><span class="lvl">Higher Secondary</span>
+          <h3>Bachelor of Business Administration (BBA)</h3>
+          <p>University of Calicut</p>
+          <span class="year">2018</span></div>
+      </article>
+      <article class="glass edu">
+        <img src="Images/ghss_vattenad.png" alt="GVHSS Vattenad logo">
+        <div class="body"><span class="lvl">Secondary</span>
+          <h3>Plus Two - Audit &amp; Accounting</h3>
+          <p>GVHSS Vattenad</p>
+          <span class="year">2015</span></div>
+      </article>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="glass contact">
+      <h2>Let's Build Financial Success Together</h2>
+      <p>Financial Analyst | SAP | FP&amp;A | Accounting &amp; Finance</p>
+      <p>Open to opportunities in Financial Analysis, FP&amp;A, General Ledger Accounting, and Finance Operations.</p>
+      <a class="btn btn-primary" target="_blank" rel="noopener noreferrer" href="https://mail.google.com/mail/?view=cm&fs=1&to=vishnukcma@gmail.com"><i class="fas fa-envelope"></i>Contact Me</a>
+    </div>
+  </section>
+
+  <footer>&copy; 2026 Vishnu K V. All rights reserved.</footer>
+</main>
+</body>
+</html>
